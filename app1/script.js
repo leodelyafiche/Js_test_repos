@@ -9,14 +9,29 @@ let personalMovieDB = {
     privat: false
 };
 
-let lastViewedFilm = prompt("Один из последних фильмов?"),
-    filmMark = +prompt("Оцените");
+if (personalMovieDB.count < 10){
+    alert("Посмотри больше фильмов");
+} else if (10 <= personalMovieDB.count && personalMovieDB.count < 30){
+    alert("Вы норм смотрите");
+} else if (personalMovieDB.count >= 30){
+    alert("Много смотришь, вырубай");
+}
+
+let lastViewedFilm,
+    filmMark;
+    
+for (let i = 0; i != personalMovieDB.count; i++){   
+    
+do {
+    lastViewedFilm = prompt("Один из последних фильмов?");
+} while ( (lastViewedFilm == "") || (lastViewedFilm == undefined) || (lastViewedFilm.length > 50) );
+
+filmMark = +prompt("Оцените");
+
 personalMovieDB.movies[lastViewedFilm] = filmMark;
 
-lastViewedFilm = prompt("Один из последних фильмов?");
-filmMark = +prompt("Оцените");
-personalMovieDB.movies[lastViewedFilm] = filmMark;
+}
+
+
 
 console.log(personalMovieDB);
-
-// alert(personalMovieDB.movies.lastViewedFilm + ':' + personalMovieDB.movies.filmMark);
