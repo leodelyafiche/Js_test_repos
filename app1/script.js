@@ -32,6 +32,6 @@ personalMovieDB.movies[lastViewedFilm] = filmMark;
 
 }
 
-
+alert("2");
 
 console.log(personalMovieDB);
